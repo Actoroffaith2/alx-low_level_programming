@@ -1,31 +1,32 @@
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
-
 /**
- * main - entry point
- * @void: no args
+ * main - print if the number is postive, zero, or negative
  *
- * Return: 0 if successful
+ * Description: using the main function
+ * this program prints "Programming is positive, zero, or negative
  */
-
 int main(void)
 {
-	int n;
-	int lastDigit;
+int n;
+int l;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
+sarand(time(0));
+n = rand() - RAND_MAX / 2;
+l = n % 10;
 
-	lastDigit = n % 10;
-
-	if (lastDigit > 5)
-		printf("Last digit of %d is %d and is greater than 5\n", n, lastDigit);
-
-	if (lastDigit == 0)
-		printf("Last digit is %d is 0 and is 0\n", n);
-
-	if (lastDigit < 6 && lastDigit != 0)
-		printf("Last digit of of %d is %d and not 0\n", n, lastDigit);
-	return (0);
+if (l > 5)
+{
+	printf("Last digit of %d is %d and is greater than 5\n", n, l);
+}
+else if (l == 0)
+{
+	printf("Last digit of %d is %d and is 0\n", n, l);
+}
+else
+{
+	printf("Last digit of %d is %d and is less than 6 and not 0\n", n, l);
+}
+return (0);
 }
