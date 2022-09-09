@@ -18,13 +18,16 @@ int main(void)
 	while (num <= 57)
 	{
 		putchar(num);
-		putchar(' ');
-	}
+		if (num != 57)
+		{
+			putchar(',');
+			putchar(' ');
+		}
 
 	num++;
-}
+	}
 
-putchar('\n');
+	putchar('\n');
 
-return (0);
+	return (0);
 }
