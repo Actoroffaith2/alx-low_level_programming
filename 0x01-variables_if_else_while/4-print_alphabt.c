@@ -1,4 +1,4 @@
-include <stdlib.h>
+#include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
 
@@ -6,7 +6,7 @@ include <stdlib.h>
  * main - entry point
  * @void: no args
  *
- *Return: 0 if successful
+ * Return: 0 if successful
  */
 
 int main(void)
