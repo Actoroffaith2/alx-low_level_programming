@@ -1,14 +1,12 @@
 #include <stdio.h>
-#include <unistd.h>
-/**
- * main - Entry point of programme
- * @void: This function has no parameters
+
+/** 
+ * main - Entry point
  *
- * Description: Prints out to the standard error
- * Return: 0 if successful
+ * Return: 1 on success
  */
-int main(void)
-{        char buf[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-	 write(2, buf, 59);
-	 return (1);
+int main(void) 
+{
+	printf("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
+	return (1);
 }
