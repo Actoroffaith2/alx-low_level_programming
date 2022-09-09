@@ -1,0 +1,30 @@
+#include <stdlib.h>
+#include <time.h>
+#include <stdio.h>
+
+/**
+ * main - entry point
+ * @void: no args
+ *
+ * Return: 0 if successful
+ */
+
+int main(void)
+{
+	int num;
+
+	num = 48;
+
+	while (num <= 57)
+	{
+		putchar(num);
+		putchar(' ');
+	}
+
+	num++;
+}
+
+putchar('\n');
+
+return (0);
+}
