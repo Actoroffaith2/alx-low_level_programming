@@ -1,94 +1,43 @@
 #include <stdio.h>
-
-
-
 /**
-
- * main - print pairs of double digit combos
-
+ * main - Entry point
  *
-
- * Description: print pairs of double digit combos
-
+ * Description: Print 2 combinations in 4D
  *
-
- * Return: Always 0 (Success)
-
+ * Return: 0 on Success
  */
-
-
-
 int main(void)
-
 {
+	int c, i, k, j;
 
-	int i, j, k, m;
-
-
-
-	i = 48;
-
-	while (i < 58)
-
+	for (c = 48; c <= 57; c++)
 	{
-
-		j = 48;
-
-		while (j < 58)
-
+		for (i = 48; i <= 57; i++)
 		{
-
-			m = j + 1;
-
-			k = i;
-
-			while (k < 58)
-
+			for (k = 48; k <= 57; k++)
 			{
-
-				while (m < 58)
-
+				for (j = 48; j <= 57; j++)
 				{
-
+					putchar(c);
 					putchar(i);
-
+					putchar(' ');
+					putchar(k);
 					putchar(j);
 
-					putchar(32);
-
-					putchar(k);
-
-					putchar(m);
-
-					if (i < 57 || j < 56 || k < 57 || m < 57)
-
+					if (c + i + k + j == 227 && c == 57)
 					{
-
-						putchar(44);
-
-						putchar(32);
-
+					break;
 					}
-
-					m++;
-
+					else
+					{
+					putchar(',');
+					putchar(' ');
+					}
 				}
-
-				m = 48;
-
-				k++;
-
-			}
-
-			j++;
-
+		        	}
 		}
-
-		i++;
-
 	}
-
-	putchar(10);
-
-	return (0);
-
+}
+putchar('\n');
+return (0);
+}
