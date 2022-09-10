@@ -1,11 +1,15 @@
+#include <stdlib.h>
+#include <time.h>
 #include <stdio.h>
+
 /**
- * main - Entry point
+ *  main - Entry point
  *
- * Description: Print 2 combinations in 4D
+ *  Description: Print 2 combinations in 4D
  *
- * Return: 0 on Success
+ *  Return: 0 on Success
  */
+
 int main(void)
 {
 	int c, i, k, j;
@@ -28,19 +32,17 @@ int main(void)
 
 						if (c + i + k + j == 227 && c == 57)
 						{
-						break;
-						}
-						else
-						{
-						        putchar(',');
-						        putchar(' ');
+							break;
+							{
+								else
+								{
+									putchar(',');
+									putchar(' ');
+								}
+							}
 						}
 					}
 				}
-			        	
+				putchar('\n');
+				return (0);
 			}
-		}
-	}
-	putchar('\n');
-	return (0);
-}
