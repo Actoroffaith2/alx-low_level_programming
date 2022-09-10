@@ -5,7 +5,9 @@
  * Description: Print 2 combinations in 4D
  *
  * Return: 0 on Success
- */
+ *
+ *
+ * /
 int main(void)
 {
 	int c, i, k, j;
