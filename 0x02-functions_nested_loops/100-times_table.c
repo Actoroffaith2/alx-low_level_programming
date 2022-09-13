@@ -1,9 +1,9 @@
 #include "main.h"
 /**
- *  print_times_table - print time tables to given num
- *  @void: takes an integer
+ * print_times_table - print time tables to given num
+ * @void: takes an integer
  *
- *  Return: void
+ * Return: void
  */
 void print_times_table(int n)
 {
@@ -80,4 +80,4 @@ void print_times_table(int n)
 			_putchar('\n');
 		}
 	}
-}			
+}	
