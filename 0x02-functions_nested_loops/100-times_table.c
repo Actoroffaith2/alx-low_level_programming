@@ -1,83 +1,48 @@
 #include "main.h"
+
 /**
- * print_times_table - print time tables to given num
- * @void: takes an integer
+ * print_times_table - Prints the n times table
  *
- * Return: void
+ * @n: number times table (0 < n <= 15)
+ *
+ * Return: no return
  */
 void print_times_table(int n)
 {
+	int a, b, op;
 
-	int i;
-	int j;
-	int product;
-	int firstDigit;
-	int secondDigit;
-	int thirdDigit;
-
-	if (n < 16 && n > -1)
+	if (n >= 0 && n <= 15)
 	{
-		for (i = 0; i <= n; i++)
+		for (a = 0; a <= n; a++)
 		{
-			for (j = 0; j <= n; j++)
+			_putchar(48);
+			for (b = 1; b <= n; b++)
 			{
-				product = i * j;
-
-				if (j == 0)
+				op = a * b;
+				_putchar(44);
+				_putchar(32);
+				if (op <= 9)
 				{
-					_putchar('0');
-					_putchar(',');
-					_putchar(' ');
-					_putchar(' ');
+					_putchar(32);
+					_putchar(32);
+					_putchar(op + 48);
+				}
+				else if (op <= 99)
+				{
+					_putchar(32);
+					_putchar((op / 10) + 48);
+					_putchar((op % 10) + 48);
 				}
 				else
 				{
-
-					if (product >= 100)
-					{
-						firstDigit = product / 100;
-						secondDigit = (product % 100) / 10;
-						thirdDigit = (product % 10);
-						_putchar(firstDigit + '0');
-						_putchar(secondDigit + '0');
-						_putchar(thirdDigit + '0');
-						if (j != n)
-						{
-							_putchar(',');
-							_putchar(' ');
-						}
-					}
-					else if (product > 9 && product < 100)
-					{
-						secondDigit = product / 10;
-						thirdDigit = (product % 10);
-
-						_putchar(' ');
-						_putchar(secondDigit + '0');
-						_putchar(thirdDigit + '0');
-						if (j != n)
-						{
-							_putchar(',');
-							_putchar(' ');
-						}
-					}
-					else
-					{
-
-						thirdDigit = (product % 10);
-
-						_putchar(' ');
-						_putchar(' ');
-						_putchar(thirdDigit + '0');
-						if (j != n)
-						{
-							_putchar(',');
-							_putchar(' ');
-						}
-					}
+					_putchar(((op / 100) % 10) + 48);
+					_putchar(((op / 10) % 10) + 48);
+					_putchar((op % 10) + 48);
 				}
 			}
 			_putchar('\n');
 		}
 	}
-}	
+}
+
+
