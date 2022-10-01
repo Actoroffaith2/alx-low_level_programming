@@ -48,11 +48,9 @@ int str_to_int;
 int sum = 0;
 
 count = 1;
-
 while (count < argc) /*Goes through the whole array*/
 
 {
-
 if(check_num(argv[count]))
 
 	{
