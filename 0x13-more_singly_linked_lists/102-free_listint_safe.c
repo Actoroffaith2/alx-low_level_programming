@@ -1,72 +1,79 @@
 #include "lists.h"
 
+int free_listintsafely(listint_t **head);
 /**
- * free_listp2 - frees a linked list
- * @head: head of a list.
+ * free_listint_safe - free_listint_safe
+ * @h: double pointer to head node
  *
- * Return: no return.
- */
-void free_listp2(listp_t **head)
+ * Return: size of list
+*/
+size_t free_listint_safe(listint_t **h)
 {
-	listp_t *temp;
-	listp_t *curr;
+	const listint_t *temp = *h, *slow = *h, *fast = *h;
+	const listint_t *temp2;
+	int i = 0;
 
-	if (head != NULL)
+	if (*h == NULL)
+		return (0);
+
+	while (slow && fast && fast->next)
 	{
-		curr = *head;
-		while ((temp = curr) != NULL)
+		slow = slow->next;
+		fast = fast->next->next;
+
+		if (slow == fast)
 		{
-			curr = curr->next;
-			free(temp);
+			slow = *h;
+
+			while (slow->next != fast->next)
+			{
+				slow = slow->next;
+				fast = fast->next;
+			}
+			while (temp != NULL)
+			{
+				if (temp == fast)
+				{
+					free((void *)temp);
+					*h = NULL;
+					i++;
+					return (i);
+				}
+				i++;
+				temp2 = temp;
+				temp = temp->next;
+				free((void *)temp2);
+			}
 		}
-		*head = NULL;
 	}
+
+	free_listintsafely(h);
+	return (i);
 }
 
 /**
- * free_listint_safe - frees a linked list.
- * @h: head of a list.
+ * free_listintsafely - free_listint_safe
+ * @head: double pointer to head node
  *
- * Return: size of the list that was freed.
- */
-size_t free_listint_safe(listint_t **h)
+ * Return: size of list
+*/
+int free_listintsafely(listint_t **head)
 {
-	size_t nnodes = 0;
-	listp_t *hptr, *new, *add;
-	listint_t *curr;
+	listint_t *temp = *head;
+	int i = 0;
 
-	hptr = NULL;
-	while (*h != NULL)
+	if (head == NULL)
 	{
-		new = malloc(sizeof(listp_t));
-
-		if (new == NULL)
-			exit(98);
-
-		new->p = (void *)*h;
-		new->next = hptr;
-		hptr = new;
-
-		add = hptr;
-
-		while (add->next != NULL)
-		{
-			add = add->next;
-			if (*h == add->p)
-			{
-				*h = NULL;
-				free_listp2(&hptr);
-				return (nnodes);
-			}
-		}
-
-		curr = *h;
-		*h = (*h)->next;
-		free(curr);
-		nnodes++;
+		return (0);
 	}
 
-	*h = NULL;
-	free_listp2(&hptr);
-	return (nnodes);
+	while (*head != NULL)
+	{
+		temp = (*head)->next;
+		i++;
+		free(*head);
+		*head = temp;
+	}
+	*head = NULL;
+	return (i);
 }
